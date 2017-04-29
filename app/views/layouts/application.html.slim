@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Pragprog Books Online Store
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    body class='#{controller.controller_name}'
+      div#banner
+        = image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf'
+        span.title = @page_title
+
+      div#columns
+        div#side
+          ul
+            li
+              a href="http://www..." Home
+            li
+              a href="http://www..." Questions
+            li
+              a href="http://www..." News
+            li
+              a href="http://www..." Contact
+        div#main
+          = yield
+
